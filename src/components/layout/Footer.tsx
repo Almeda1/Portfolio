@@ -11,14 +11,13 @@ export default function Footer() {
           
           {/* 1. Brand & Description */}
           <div className="lg:col-span-2">
-            <a href="#hero" className="flex items-center gap-2 text-xl font-bold tracking-tight text-white hover:text-blue-400 transition mb-4">
-              {/* UPDATED: Replaced Code2 icon with logo image */}
+            <a href="#hero" className="inline-block mb-4 transition hover:opacity-80">
+              {/* UPDATED: Logo only, text removed */}
               <img 
                 src="/logo.png" 
                 alt="Almeda Logo" 
-                className="h-8 w-8 object-contain" 
+                className="h-10 w-auto object-contain" 
               />
-              <span>Almeda<span className="text-blue-500">.</span></span>
             </a>
             <p className="text-sm leading-6 text-gray-400 max-w-sm">
               Crafting exceptional digital experiences with clean code and modern design. 

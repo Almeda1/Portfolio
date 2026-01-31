@@ -94,7 +94,7 @@ export default function About() {
           {/* Left Column: Text Content */}
           <div>
             <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6">
-              About Almeda
+              About
             </h2>
             <p className="text-lg leading-8 text-slate-700 mb-6">
               We are dedicated to creating exceptional digital experiences. With a year of industry experience, we transform ideas into powerful websites that drive business growth.

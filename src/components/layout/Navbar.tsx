@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -55,17 +54,14 @@ export default function Navbar() {
         <a 
           href="#hero" 
           onClick={(e) => scrollToSection(e, 'hero')}
-          className="flex items-center gap-2 text-xl font-bold tracking-tight text-white hover:text-blue-400 transition"
+          className="flex items-center gap-2 transition hover:opacity-80"
         >
-          {/* UPDATED: Reference the file directly from the public folder */}
-          {/* Ensure your file is named 'logo.png' inside the 'public' folder */}
           <img 
             src="/logo.png" 
             alt="Almeda Logo" 
-            className="h-8 w-8 object-contain" 
+            // Increased size slightly to h-10 (40px) since it stands alone now
+            className="h-10 w-auto object-contain" 
           />
-          
-          <span>Almeda<span className="text-blue-500">.</span></span>
         </a>
 
         {/* Navigation Links */}
