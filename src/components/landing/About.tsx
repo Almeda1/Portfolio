@@ -11,7 +11,7 @@ import {
 // ----------------------------------------------------------------------
 const stats = [
   { label: 'Completion Rate', value: '100%', icon: CheckCircle2 }, 
-  { label: 'Projects Completed', value: '5+', icon: Award },       
+  { label: 'Projects Completed', value: '10+', icon: Award },       
   { label: 'Year Experience', value: '1', icon: Clock },          
   { label: 'Client Satisfaction', value: '98%', icon: TrendingUp },
 ];
