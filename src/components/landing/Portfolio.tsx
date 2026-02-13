@@ -55,6 +55,18 @@ const projects: Project[] = [
     // repoLink: "https://github.com/yourusername/crownlith"
   },
   {
+    title: "HABITVAULT",
+    shortDescription: "A habit-tracking and productivity system focused on consistency, streaks, and long-term personal growth.",
+    fullDescription: "HabitVault is a habit-tracking and productivity system built for users who want structure without friction. It allows users to build positive habits like reading, exercising, or studying by tracking daily progress. The application features data visualization for completion rates and streaks to keep users motivated on their journey to self-improvement.",
+    tags: ["React.js", "Tailwind CSS", "Firebase"],
+    fullTags: ["React.js", "Tailwind CSS", "Firebase", "NoSQL"],
+    image: habitVaultImage, 
+    logo: habitVaultLogo,
+    status: "Deployed",
+    link: "https://habitvault-self.vercel.app",
+    // repoLink: "https://github.com/yourusername/habit-vault" 
+  },
+  {
     title: "DRIVEPOINT LOGISTICS",
     shortDescription: "A premium luxury car rental platform offering an extensive fleet of high-end vehicles.",
     fullDescription: "DRIVEPOINT is a premium car rental platform designed for a seamless user experience. It allows customers to browse, book, and manage a curated fleet of high-end vehicles—from sports cars to luxury SUVs. Built with a focus on performance and ease of use, the application handles complex scheduling and inventory management to ensure a sophisticated travel experience.",
@@ -77,18 +89,6 @@ const projects: Project[] = [
     status: "Deployed",
     link: "https://naira-track.vercel.app", 
     // repoLink: "https://github.com/yourusername/naira-track"
-  },
-  {
-    title: "HABITVAULT",
-    shortDescription: "A habit-tracking and productivity system focused on consistency, streaks, and long-term personal growth.",
-    fullDescription: "HabitVault is a habit-tracking and productivity system built for users who want structure without friction. It allows users to build positive habits like reading, exercising, or studying by tracking daily progress. The application features data visualization for completion rates and streaks to keep users motivated on their journey to self-improvement.",
-    tags: ["React.js", "Tailwind CSS", "Firebase"],
-    fullTags: ["React.js", "Tailwind CSS", "Firebase", "NoSQL"],
-    image: habitVaultImage, 
-    logo: habitVaultLogo,
-    status: "Deployed",
-    link: "https://habitvault-self.vercel.app",
-    // repoLink: "https://github.com/yourusername/habit-vault" 
   },
   {
     title: "CHOPS & HAMPERS",
