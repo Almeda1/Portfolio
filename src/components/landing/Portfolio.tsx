@@ -42,6 +42,18 @@ interface Project {
 }
 
 const projects: Project[] = [
+   {
+    title: "CROWNLITH LOGISTICS",
+    shortDescription: "A logistics company website focused on service clarity, credibility, and lead generation for transport and delivery solutions.",
+    fullDescription: "Crownlith Logistics is a professional corporate website designed to establish credibility and service clarity. It showcases global shipping solutions, transport services, and delivery logistics. The site is optimized for lead generation, helping customers easily understand service offerings and get in touch for their logistical needs.",
+    tags: ["React.js", "Tailwind CSS", "Business"],
+    fullTags: ["React.js", "Tailwind CSS", "Business Architecture"],
+    image: crownlithImage, 
+    logo: crownlithLogo,
+    status: "Deployed",
+    link: "https://crownlithlogistics.vercel.app/", 
+    // repoLink: "https://github.com/yourusername/crownlith"
+  },
   {
     title: "DRIVEPOINT LOGISTICS",
     shortDescription: "A premium luxury car rental platform offering an extensive fleet of high-end vehicles.",
@@ -65,18 +77,6 @@ const projects: Project[] = [
     status: "Deployed",
     link: "https://naira-track.vercel.app", 
     // repoLink: "https://github.com/yourusername/naira-track"
-  },
-   {
-    title: "CROWNLITH LOGISTICS",
-    shortDescription: "A logistics company website focused on service clarity, credibility, and lead generation for transport and delivery solutions.",
-    fullDescription: "Crownlith Logistics is a professional corporate website designed to establish credibility and service clarity. It showcases global shipping solutions, transport services, and delivery logistics. The site is optimized for lead generation, helping customers easily understand service offerings and get in touch for their logistical needs.",
-    tags: ["React.js", "Tailwind CSS", "Business"],
-    fullTags: ["React.js", "Tailwind CSS", "Business Architecture"],
-    image: crownlithImage, 
-    logo: crownlithLogo,
-    status: "Deployed",
-    link: "https://crownlithlogistics.vercel.app/", 
-    // repoLink: "https://github.com/yourusername/crownlith"
   },
   {
     title: "HABITVAULT",
