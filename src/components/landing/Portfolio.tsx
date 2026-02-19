@@ -10,10 +10,9 @@ import {
 // ASSETS
 // ----------------------------------------------------------------------
 // Existing Assets
-import drivepointImage from '../../assets/drivepoint.png'; 
-import drivepointLogo from '../../assets/wheel-logo.png'; 
 import habitVaultImage from '../../assets/habitvault.png'; 
 import habitVaultLogo from '../../assets/habitvault-logo.png'; 
+
 
 // NEW ASSETS (Make sure these files exist in your assets folder)
 import nairaTrackImage from '../../assets/nairatrack.png';
@@ -22,6 +21,8 @@ import crownlithImage from '../../assets/crownlith.png';
 import crownlithLogo from '../../assets/crownlith-logo.png';
 import chopsImage from '../../assets/chops.png';
 import chopsLogo from '../../assets/chops-logo.png';
+import eclatImage from '../../assets/eclatImage.png';
+import eclatLogo from '../../assets/eclatlogo.png';
 // import hazalaImage from '../../assets/hazala.png'; // Commented out
 // import hazalaLogo from '../../assets/hazala-logo.png'; // Commented out
 
@@ -42,6 +43,17 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+  title: "ÉCLAT",
+  shortDescription: "A premium e-commerce platform for luxury timepieces, featuring a bespoke minimalist interface and real-time inventory management.",
+  fullDescription: "ÉCLAT is a high-fidelity e-commerce experience designed to mirror the precision of the Swiss watches it curates. Built with a 'content-first' approach, it moves away from cluttered storefronts to offer a refined, distraction-free shopping journey. The platform powers real-time product data via Supabase, features a custom global state management system for the cart, and utilizes advanced filtering logic to deliver a seamless, performant user experience.",
+  tags: ["React.js", "Tailwind CSS", "Supabase"],
+  fullTags: ["React.js", "Tailwind CSS", "Supabase", "PostgreSQL", "Context API", "UI/UX Design"],
+  image: eclatImage, 
+  logo: eclatLogo,  
+  status: "Deployed",
+  link: "https://eclat-swiss.vercel.app/",
+},
    {
     title: "CROWNLITH LOGISTICS",
     shortDescription: "A logistics company website focused on service clarity, credibility, and lead generation for transport and delivery solutions.",
@@ -65,18 +77,6 @@ const projects: Project[] = [
     status: "Deployed",
     link: "https://habitvault-self.vercel.app",
     // repoLink: "https://github.com/yourusername/habit-vault" 
-  },
-  {
-    title: "DRIVEPOINT LOGISTICS",
-    shortDescription: "A premium luxury car rental platform offering an extensive fleet of high-end vehicles.",
-    fullDescription: "DRIVEPOINT is a premium car rental platform designed for a seamless user experience. It allows customers to browse, book, and manage a curated fleet of high-end vehicles—from sports cars to luxury SUVs. Built with a focus on performance and ease of use, the application handles complex scheduling and inventory management to ensure a sophisticated travel experience.",
-    tags: ["React.js", "Tailwind CSS", "Typescript"],
-    fullTags: ["React.js", "Tailwind CSS", "Typescript"],
-    image: drivepointImage, 
-    logo: drivepointLogo,
-    status: "Deployed",
-    link: "https://drive-point.vercel.app",
-    // repoLink: "https://github.com/Almeda1/drive-point" 
   },
    {
     title: "NAIRATRACK",
