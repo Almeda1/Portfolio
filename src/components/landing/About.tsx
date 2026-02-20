@@ -16,8 +16,8 @@ const stats = [
   { label: 'Client Satisfaction', value: '98%', icon: TrendingUp },
 ];
 
-const whyChooseUs = [
-  'Expert team with proven track record',
+const whyChooseMe = [
+  'Dedicated expertise with a proven track record',
   'Custom solutions tailored to your needs',
   'Ongoing support and maintenance',
   'Competitive pricing and timely delivery',
@@ -97,18 +97,17 @@ export default function About() {
               About
             </h2>
             <p className="text-lg leading-8 text-slate-700 mb-6">
-              We are dedicated to creating exceptional digital experiences. With a year of industry experience, we transform ideas into powerful websites that drive business growth.
+              I am dedicated to creating exceptional digital experiences. With a year of industry experience, I transform ideas into powerful websites that drive business growth.
             </p>
             <p className="text-lg leading-8 text-slate-700 mb-10">
-              Our approach combines cutting-edge technology, creative design, and strategic thinking to deliver solutions that not only look great but also perform exceptionally well.
+              My approach combines cutting-edge technology, creative design, and strategic thinking to deliver solutions that not only look great but also perform exceptionally well.
             </p>
 
-            {/* Why Choose Us List */}
-            <h3 className="text-2xl font-bold text-slate-900 mb-5">Why Choose Us?</h3>
+            {/* Why Choose Me List */}
+            <h3 className="text-2xl font-bold text-slate-900 mb-5">Why Choose Me?</h3>
             <ul className="space-y-4">
-              {whyChooseUs.map((item, index) => (
+              {whyChooseMe.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  {/* UPDATE: Changed flex-shrink-0 to shrink-0 */}
                   <CheckCircle2 className="h-6 w-6 text-blue-600 mr-3 shrink-0 mt-1" />
                   <span className="text-lg text-slate-700 font-medium">{item}</span>
                 </li>

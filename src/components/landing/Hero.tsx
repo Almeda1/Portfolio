@@ -41,23 +41,26 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg text-gray-400 mb-8 max-w-lg">
-              We turn ambitious ideas into powerful, high-performance web solutions. 
-              From seamless design to robust code, we build the technology that drives your business forward.
+              I turn ambitious ideas into powerful, high-performance web solutions. 
+              From seamless design to robust code, I build the technology that drives your business forward.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            {/* BUTTONS CONTAINER */}
+            <div className="flex gap-3 sm:gap-4 w-full sm:w-auto">
+              {/* I also left the buttons swapped here from our previous chat, let me know if you want them reverted! */}
               <a 
                 href="#contact" 
-                className="flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-3.5 font-semibold text-white shadow-lg hover:bg-blue-500 hover:-translate-y-0.5 transition-all"
+                className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-3 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-blue-500 hover:-translate-y-0.5 transition-all whitespace-nowrap"
               >
                 Get Started <ArrowRight className="h-4 w-4" />
               </a>
-              <a 
+               <a 
                 href="#work" 
-                className="rounded-lg border border-gray-700 bg-transparent px-8 py-3.5 font-semibold text-white hover:bg-gray-800 transition-colors"
+                className="flex-1 sm:flex-none flex items-center justify-center rounded-lg border border-gray-700 bg-transparent px-3 sm:px-8 py-3.5 text-sm sm:text-base font-semibold text-white hover:bg-gray-800 transition-colors whitespace-nowrap"
               >
                 View Projects
               </a>
+
             </div>
           </div>
 

@@ -91,7 +91,7 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            Ready to start your project? Contact us today and let's create something amazing together.
+            Ready to start your project? Reach out today and let's create something amazing together.
           </p>
         </div>
 
@@ -210,7 +210,7 @@ export default function Contact() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your project..."
+                    placeholder="Tell me about your project..."
                     required
                     className="w-full rounded-xl bg-black/20 border border-white/10 px-4 py-3 text-white placeholder-slate-600 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all resize-none"
                   />

@@ -145,7 +145,7 @@ export default function Portfolio() {
           }`}
         >
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Featured Projects</h2>
-          <p className="mt-4 text-lg text-slate-400">Take a look at some of our recent work and successful deployments.</p>
+          <p className="mt-4 text-lg text-slate-400">Take a look at some of my recent work and successful deployments.</p>
         </div>
         
         {/* GRID */}
