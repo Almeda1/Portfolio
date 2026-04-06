@@ -31,20 +31,15 @@ const Icon = ({ name, className }: IconProps) => {
   return <span className={className}>{icons[name] || <span className="text-sm">?</span>}</span>;
 };
 
-const Avatar = ({ src, className }: { src?: string; className?: string }) => (
-  <div className={`rounded-full overflow-hidden border border-slate-700 shadow-lg ${className}`}>
-    <img src={src || 'https://i.pravatar.cc/100'} alt="Avatar" className="w-full h-full object-cover" />
-  </div>
-);
 
 const HeroSection = () => {
   return (
     <div id="hero" className="relative h-screen w-full font-sans bg-[#020617] text-slate-100 overflow-hidden flex flex-col justify-center items-center p-4">
       
       {/* Background Gradient & Starry Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-[#020617] to-[#020617] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-blue-900/20 via-[#020617] to-[#020617] z-0"></div>
 
-      <div className="w-full max-w-[1200px] h-full max-h-[800px] grid grid-cols-1 lg:grid-cols-2 gap-8 z-10 relative">
+      <div className="w-full max-w-300 h-full max-h-200 grid grid-cols-1 lg:grid-cols-2 gap-8 z-10 relative">
         
         {/* LEFT SIDE: Text Column */}
         <div className="flex flex-col justify-center text-center md:text-left items-center md:items-start gap-6 md:gap-4 p-4 sm:p-8 md:p-6 lg:pr-0 mt-8 md:mt-0">
@@ -72,7 +67,7 @@ const HeroSection = () => {
           {/* Buttons */}
           <div className="flex flex-row items-center justify-center md:justify-start gap-4 mt-6 md:mt-5 animate-fade-up delay-300">
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/50 to-cyan-500/50 rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-500 md:block"></div>
+              <div className="absolute -inset-2 bg-linear-to-r from-blue-500/50 to-cyan-500/50 rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-500 md:block"></div>
               <a href="#contact" className="relative flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-slate-900/80 border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-800 transition-colors shadow-lg shadow-blue-900/20 text-sm md:text-base">
                 Get Started
                 <Icon name="arrowRight" className="text-slate-300 w-4 h-4 md:w-5 md:h-5" />
@@ -86,10 +81,10 @@ const HeroSection = () => {
         </div>
 
         {/* RIGHT SIDE: Complex Glassmorphic Cluster */}
-        <div className="relative h-[480px] lg:h-[600px] w-full hidden md:flex items-center justify-center scale-[0.65] lg:scale-[0.80] origin-center -ml-4">
+        <div className="relative h-120 lg:h-150 w-full hidden md:flex items-center justify-center scale-[0.65] lg:scale-[0.80] origin-center -ml-4">
           
           {/* Subtle dot grid background */}
-          <div className="absolute inset-[-100px] z-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf8 1px, transparent 1px)', backgroundSize: '40px 40px', maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' }}></div>
+          <div className="absolute -inset-25 z-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf8 1px, transparent 1px)', backgroundSize: '40px 40px', maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' }}></div>
 
           {/* Connecting Lines SVG — hub to each card, z-index below cards */}
           {/* Coords adjusted for exact center of smaller cards to the Central Hub (Code Editor) at roughly (50, 50) */}
@@ -135,27 +130,27 @@ const HeroSection = () => {
           </div>
 
           {/* Modern Stack Cards (Top Right) */}
-          <div className="absolute top-[0%] -right-[5%] w-[185px] glassmorphic p-4 rounded-xl border border-slate-700/50 shadow-2xl z-20 bg-slate-900/40 backdrop-blur-md scale-[0.85] animate-fade-scale delay-500">
+          <div className="absolute top-[0%] -right-[5%] w-46.25 glassmorphic p-4 rounded-xl border border-slate-700/50 shadow-2xl z-20 bg-slate-900/40 backdrop-blur-md scale-[0.85] animate-fade-scale delay-500">
             <h4 className="font-medium text-slate-200 text-sm">Modern Stack</h4>
             <p className="text-[10px] text-slate-500 mb-3.5">Layers</p>
-            <div className="relative h-[60px] w-full perspective-[1000px]">
-              <div className="absolute top-0 left-3 w-[88px] h-[50px] bg-slate-800 rounded-lg border border-blue-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(18px)' }}></div>
-              <div className="absolute top-0 left-3 w-[88px] h-[50px] bg-slate-800/80 rounded-lg border border-teal-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(9px)' }}></div>
-              <div className="absolute top-0 left-3 w-[88px] h-[50px] bg-slate-800/60 rounded-lg border border-indigo-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(0px)' }}></div>
-              <div className="absolute top-0 left-3 w-[88px] h-[50px] bg-slate-800/40 rounded-lg border border-purple-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(-9px)' }}></div>
+            <div className="relative h-15 w-full perspective-[1000px]">
+              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800 rounded-lg border border-blue-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(18px)' }}></div>
+              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800/80 rounded-lg border border-teal-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(9px)' }}></div>
+              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800/60 rounded-lg border border-indigo-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(0px)' }}></div>
+              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800/40 rounded-lg border border-purple-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(-9px)' }}></div>
             </div>
           </div>
 
           {/* Performance Card (Middle Left) */}
-          <div className="absolute top-[50%] -left-[5%] -translate-y-1/2 w-[160px] p-3 glassmorphic rounded-lg border border-slate-700/50 shadow-2xl z-30 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-[600ms]">
+          <div className="absolute top-[50%] -left-[5%] -translate-y-1/2 w-40 p-3 glassmorphic rounded-lg border border-slate-700/50 shadow-2xl z-30 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-600">
             <div className="flex justify-between items-center mb-2">
                 <h4 className="font-medium text-slate-200 text-xs">Performance</h4>
                 <div className="flex items-center text-slate-400 text-[10px]">
                     zap <Icon name="zap" className="ml-1 text-slate-500 scale-75" />
                 </div>
             </div>
-            <div className="w-full h-12 rounded-md bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900/40 border border-slate-700/50 relative overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-teal-500/20 to-transparent blur-md"></div>
+            <div className="w-full h-12 rounded-md bg-linear-to-br from-slate-800 via-slate-900 to-teal-900/40 border border-slate-700/50 relative overflow-hidden">
+                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-teal-500/20 to-transparent blur-md"></div>
                 <div className="absolute inset-0 flex items-center justify-center text-slate-500 opacity-20">
                     <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 C 20 80, 50 100, 100 20 L 100 100 Z" fill="currentColor"/></svg>
                 </div>
@@ -163,14 +158,14 @@ const HeroSection = () => {
           </div>
 
           {/* Code editor — THE HUB (Dead Center) */}
-          <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[250px] aspect-square flex flex-col glassmorphic rounded-lg border border-slate-700/60 shadow-[0_0_50px_rgba(56,189,248,0.15)] z-40 bg-slate-900/80 backdrop-blur-xl overflow-hidden scale-100 animate-fade-scale delay-300">
+          <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-62.5 aspect-square flex flex-col glassmorphic rounded-lg border border-slate-700/60 shadow-[0_0_50px_rgba(56,189,248,0.15)] z-40 bg-slate-900/80 backdrop-blur-xl overflow-hidden scale-100 animate-fade-scale delay-300">
             <div className="bg-slate-800/60 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 shrink-0">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
               <span className="ml-2 text-[10px] text-slate-500 font-mono">Hero.tsx</span>
             </div>
-            <div className="p-4 font-mono text-[10px] leading-relaxed text-slate-400 flex flex-col justify-center flex-grow">
+            <div className="p-4 font-mono text-[10px] leading-relaxed text-slate-400 flex flex-col justify-center grow">
               <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">1</span><p><span className="text-purple-400">class</span> <span className="text-yellow-200">Nodeers</span> {'{'}</p></div>
               <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">2</span><p className="pl-3"><span className="text-purple-400">return</span> (</p></div>
               <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">3</span><p className="pl-6"><span className="text-blue-400">const</span> ideter = <span className="text-green-300">"UI"</span>;</p></div>
@@ -182,7 +177,7 @@ const HeroSection = () => {
           </div>
 
           {/* Analytics line graph (Middle Right) */}
-          <div className="absolute top-[50%] -right-[5%] -translate-y-1/2 w-[160px] p-3 glassmorphic rounded-lg border border-slate-700/50 shadow-2xl z-30 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-[700ms]">
+          <div className="absolute top-[50%] -right-[5%] -translate-y-1/2 w-40 p-3 glassmorphic rounded-lg border border-slate-700/50 shadow-2xl z-30 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-700">
             <h4 className="font-medium text-slate-200 text-xs mb-3 flex justify-between">Analytics <span className="text-slate-400 text-[10px]">● 100</span></h4>
             <div className="relative w-full h-12">
               <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 50" preserveAspectRatio="none">
@@ -203,7 +198,7 @@ const HeroSection = () => {
           </div>
 
           {/* Infrastructure (Bottom Left Replacement) */}
-          <div className="absolute bottom-[5%] left-[5%] w-[180px] p-4 glassmorphic rounded-xl border border-blue-500/30 shadow-2xl z-20 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-800">
+          <div className="absolute bottom-[5%] left-[5%] w-45 p-4 glassmorphic rounded-xl border border-blue-500/30 shadow-2xl z-20 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-800">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 rounded bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
                 <Icon name="terminal" className="scale-75" />
@@ -224,7 +219,7 @@ const HeroSection = () => {
           </div>
 
           {/* System.init() console (Bottom Right) */}
-          <div className="absolute bottom-[10%] right-[5%] w-[240px] glassmorphic rounded-lg border border-slate-700/60 shadow-2xl z-40 bg-slate-900/80 backdrop-blur-xl scale-90 animate-fade-scale delay-[900ms]">
+          <div className="absolute bottom-[10%] right-[5%] w-60 glassmorphic rounded-lg border border-slate-700/60 shadow-2xl z-40 bg-slate-900/80 backdrop-blur-xl scale-90 animate-fade-scale delay-900">
              <div className="bg-slate-800/80 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 rounded-t-lg">
               <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
               <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>

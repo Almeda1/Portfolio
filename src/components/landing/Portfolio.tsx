@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { 
   ArrowUpRight, 
   X, 
-  ExternalLink, 
   // Github, // 1. Un-comment to restore Github Icon import
 } from 'lucide-react';
 
@@ -143,7 +142,7 @@ export default function Portfolio() {
         }
       `}</style>
       {/* Background Gradient & Cyber Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-[#020617] to-[#020617] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-blue-900/20 via-[#020617] to-[#020617] z-0"></div>
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf8 1px, transparent 1px)', backgroundSize: '40px 40px', maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)' }}></div>
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
@@ -193,15 +192,15 @@ export default function Portfolio() {
 
               {/* CARD: INSET IMAGE */}
               <div className="relative h-48 w-full overflow-hidden bg-[#020617] mt-1 border-b border-slate-800/50 p-1 group-hover:border-blue-500/30 transition-colors">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#020617]/90 via-transparent to-transparent z-10" />
                 <div className="w-full h-full relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title} 
-                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale-[30%] group-hover:grayscale-0" 
+                    className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100 filter grayscale-30 group-hover:grayscale-0" 
                   />
                   {/* Cyber Scanline effect */}
-                  <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px] pointer-events-none opacity-50"></div>
+                  <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.2)_50%)] bg-size-[100%_4px] pointer-events-none opacity-50"></div>
                 </div>
                 <div className="absolute top-3 left-3 z-20 flex gap-2">
                   <span className="inline-flex items-center rounded-sm bg-slate-900/90 border border-emerald-500/40 px-2 py-0.5 text-[9px] font-mono tracking-widest text-emerald-400 backdrop-blur-md shadow-[0_0_10px_rgba(16,185,129,0.1)]">
@@ -212,10 +211,10 @@ export default function Portfolio() {
               </div>
 
               {/* CARD: CONTENT */}
-              <div className="p-5 flex flex-col flex-grow relative z-20">
+              <div className="p-5 flex flex-col grow relative z-20">
                 <div className="flex items-center gap-4 mb-5">
                   <div className="shrink-0 w-12 h-12 bg-slate-800/80 border border-slate-700/50 p-2 backdrop-blur-md group-hover:border-blue-500/40 transition-colors relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/50 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                    <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-blue-400/50 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     <img 
                       src={project.logo} 
                       alt={`${project.title} logo`}
@@ -226,7 +225,7 @@ export default function Portfolio() {
                     <h3 className="text-lg font-bold text-slate-200 group-hover:text-blue-400 transition-colors tracking-wide uppercase">
                       {project.title}
                     </h3>
-                    <div className="h-[1px] w-8 bg-blue-500/50 mt-1 mb-1 group-hover:w-full transition-all duration-500 ease-out"></div>
+                    <div className="h-px w-8 bg-blue-500/50 mt-1 mb-1 group-hover:w-full transition-all duration-500 ease-out"></div>
                     <p className="text-[9px] text-blue-500/70 font-mono uppercase tracking-widest flex items-center gap-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
                       SYS.ACCESS \ <span className="text-white">AUTHORIZED</span>
                     </p>
@@ -289,7 +288,7 @@ export default function Portfolio() {
               {/* MODAL: INSET HEADER IMAGE */}
               <div className="p-3 pb-0">
                 <div className="relative w-full h-64 sm:h-80 overflow-hidden rounded-xl border border-slate-700/50 bg-[#020617]">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent z-10 opacity-80" />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#020617] to-transparent z-10 opacity-80" />
                     
                     <img 
                      src={selectedProject.image} 

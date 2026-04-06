@@ -65,14 +65,14 @@ export default function Contact() {
       id="contact"
     >
       {/* Background Cyber Gradient & Radar Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-[#020617] to-[#020617] z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-blue-900/10 via-[#020617] to-[#020617] z-0"></div>
       
       {/* Unique Radar Sweep Background Feature */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none flex items-center justify-center overflow-hidden">
-        <div className="w-[800px] h-[800px] rounded-full border border-blue-500/30 relative flex items-center justify-center">
-          <div className="w-[600px] h-[600px] rounded-full border border-blue-500/20 flex items-center justify-center">
-             <div className="w-[400px] h-[400px] rounded-full border border-blue-500/30"></div>
-             <div className="absolute top-1/2 left-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent to-blue-400 origin-left animate-[spin_4s_linear_infinite]"></div>
+        <div className="w-200 h-200 rounded-full border border-blue-500/30 relative flex items-center justify-center">
+          <div className="w-150 h-150 rounded-full border border-blue-500/20 flex items-center justify-center">
+             <div className="w-100 h-100 rounded-full border border-blue-500/30"></div>
+             <div className="absolute top-1/2 left-1/2 w-1/2 h-px bg-linear-to-r from-transparent to-blue-400 origin-left animate-[spin_4s_linear_infinite]"></div>
           </div>
         </div>
       </div>
@@ -193,7 +193,7 @@ export default function Contact() {
                <div className="h-1 w-24 bg-blue-500"></div>
                <div className="h-1 w-4 bg-slate-600"></div>
                <div className="h-1 w-1 bg-slate-600"></div>
-               <div className="h-1 w-full flex-grow border-b border-dashed border-slate-600"></div>
+               <div className="h-1 w-full grow border-b border-dashed border-slate-600"></div>
             </div>
           </div>
 
@@ -202,10 +202,10 @@ export default function Contact() {
             <div className="relative bg-[#020617] border border-slate-800/80 p-8 lg:p-10 z-10 overflow-hidden">
               
               {/* Terminal Frame Decorations */}
-              <div className="absolute top-0 left-0 w-12 h-[2px] bg-blue-500"></div>
-              <div className="absolute top-0 left-0 w-[2px] h-12 bg-blue-500"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-[2px] bg-blue-500"></div>
-              <div className="absolute bottom-0 right-0 w-[2px] h-12 bg-blue-500"></div>
+              <div className="absolute top-0 left-0 w-12 h-0.5 bg-blue-500"></div>
+              <div className="absolute top-0 left-0 w-0.5 h-12 bg-blue-500"></div>
+              <div className="absolute bottom-0 right-0 w-12 h-0.5 bg-blue-500"></div>
+              <div className="absolute bottom-0 right-0 w-0.5 h-12 bg-blue-500"></div>
               <div className="absolute top-4 right-4 text-[10px] text-slate-600 font-mono">TERM_ID: XA-99</div>
               
               <div className="flex items-center gap-2 mb-8">
@@ -228,7 +228,7 @@ export default function Contact() {
                     required
                     className="terminal-input w-full bg-transparent border-b border-slate-700 py-2 text-sm font-mono text-slate-200 placeholder-slate-700 focus:outline-none transition-colors"
                   />
-                  <div className="terminal-border absolute bottom-0 left-0 h-[1px] w-0 bg-blue-500 transition-all duration-300 opacity-0"></div>
+                  <div className="terminal-border absolute bottom-0 left-0 h-px w-0 bg-blue-500 transition-all duration-300 opacity-0"></div>
                 </div>
 
                 <div className="relative">
@@ -243,7 +243,7 @@ export default function Contact() {
                     required
                     className="terminal-input w-full bg-transparent border-b border-slate-700 py-2 text-sm font-mono text-slate-200 placeholder-slate-700 focus:outline-none transition-colors"
                   />
-                  <div className="terminal-border absolute bottom-0 left-0 h-[1px] w-0 bg-blue-500 transition-all duration-300 opacity-0"></div>
+                  <div className="terminal-border absolute bottom-0 left-0 h-px w-0 bg-blue-500 transition-all duration-300 opacity-0"></div>
                 </div>
 
                 <div className="relative">
@@ -258,7 +258,7 @@ export default function Contact() {
                     required
                     className="terminal-input w-full bg-transparent border-b border-slate-700 py-2 text-sm font-mono text-slate-200 placeholder-slate-700 focus:outline-none transition-colors"
                   />
-                  <div className="terminal-border absolute bottom-0 left-0 h-[1px] w-0 bg-blue-500 transition-all duration-300 opacity-0"></div>
+                  <div className="terminal-border absolute bottom-0 left-0 h-px w-0 bg-blue-500 transition-all duration-300 opacity-0"></div>
                 </div>
 
                 <div className="relative">

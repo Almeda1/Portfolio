@@ -2,7 +2,7 @@
 
 A modern, interactive, and immersive personal portfolio application. Designed with a distinct "cyber-web" aesthetic featuring glassmorphism, isometric blueprint grids, and custom terminal-style interfaces.
 
-## ?? Features
+## Features
 
 - **Immersive Cyber-Web Aesthetic**: A cohesive visual language utilizing glassmorphic panels, glowing radial gradients, and custom CSS keyframe animations.
 - **Single-Page Experience**: Smooth scrolling navigation linked to a dynamic, animated NavBar.
@@ -13,21 +13,21 @@ A modern, interactive, and immersive personal portfolio application. Designed wi
   - **Contact**: "Terminal Uplink & Radar Dashboard" with CLI-styled form inputs.
 - **Mobile Responsive**: Fully optimized for diverse screen sizes with mobile-specific layout accommodations.
 
-## ??? Tech Stack
+## Tech Stack
 
 - **Framework:** React / Vite
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS (with custom embedded styling and CSS animations)
 - **Icons:** Custom SVG components
 
-## ?? Project Structure
+## Project Structure
 
 `	ext
 src/
 +-- assets/             # Static assets and images
 +-- components/         # React components
-¦   +-- landing/        # Core layout sections (Hero, About, Services, Portfolio, Contact)
-¦   +-- layout/         # Global elements (Navbar, Footer)
+ï¿½   +-- landing/        # Core layout sections (Hero, About, Services, Portfolio, Contact)
+ï¿½   +-- layout/         # Global elements (Navbar, Footer)
 +-- hooks/              # Custom React hooks
 +-- pages/              # Main page components
 +-- types/              # TypeScript typings

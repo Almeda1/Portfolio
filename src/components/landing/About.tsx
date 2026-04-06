@@ -109,8 +109,8 @@ export default function About() {
             </h2>
             
             <div className="relative p-6 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-10">
-              <div className="absolute top-0 right-0 w-16 h-[2px] bg-blue-500/30"></div>
-              <div className="absolute bottom-0 left-0 w-16 h-[2px] bg-cyan-500/30"></div>
+              <div className="absolute top-0 right-0 w-16 h-0.5 bg-blue-500/30"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-0.5 bg-cyan-500/30"></div>
               
               <p className="text-base leading-relaxed text-slate-700 mb-4">
                 I am dedicated to creating exceptional digital experiences. With a year of industry experience, I transform ideas into powerful websites that drive business growth.
@@ -130,7 +130,7 @@ export default function About() {
                   key={index} 
                   className="group flex items-center gap-4 p-3 rounded-xl bg-white/30 backdrop-blur-md border border-slate-200/50 hover:border-blue-300 hover:bg-white/60 transition-all duration-300 shadow-sm"
                 >
-                  <div className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100/50 text-blue-600 border border-blue-200/50 group-hover:scale-110 transition-transform">
+                  <div className="shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100/50 text-blue-600 border border-blue-200/50 group-hover:scale-110 transition-transform">
                     <CheckCircle2 className="w-4 h-4" />
                   </div>
                   <span className="text-sm font-medium text-slate-700">{item}</span>
@@ -154,7 +154,7 @@ export default function About() {
                 className={`relative p-6 rounded-2xl bg-white/60 backdrop-blur-xl border border-slate-200/60 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-lg hover:-translate-y-1 hover:border-blue-400/40 transition-all duration-500 group opacity-0 overflow-hidden ${isVisible ? 'animate-diag-in' : ''}`}
               >
                 {/* Top LED Indicator */}
-                <div className="absolute top-0 right-0 w-full h-[3px] bg-gradient-to-r from-transparent via-slate-200 to-transparent group-hover:via-blue-400 transition-colors duration-500" />
+                <div className="absolute top-0 right-0 w-full h-0.75 bg-linear-to-r from-transparent via-slate-200 to-transparent group-hover:via-blue-400 transition-colors duration-500" />
                 
                 <div className="flex justify-between items-start mb-4 relative z-10">
                   <span className="text-[10px] font-mono text-slate-400 tracking-wider">

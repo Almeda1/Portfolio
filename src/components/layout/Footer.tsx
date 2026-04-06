@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-[#020617] border-t border-slate-800/80 relative overflow-hidden font-sans">
       {/* Cyber Background Details */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf8 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent z-0 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent z-0 pointer-events-none"></div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 lg:px-8">
         
@@ -76,7 +76,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-16 border-t border-slate-800 pt-8 flex flex-col items-center justify-between gap-4 md:flex-row relative">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-linear-to-r from-transparent via-blue-500/50 to-transparent"></div>
           
           <p className="text-xs font-mono text-slate-500">
             COPYRIGHT &copy; {currentYear} ALMEDA. ALL_RIGHTS_RESERVED. <span className="animate-pulse font-bold text-blue-500">_</span>

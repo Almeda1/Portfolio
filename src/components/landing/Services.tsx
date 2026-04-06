@@ -171,7 +171,7 @@ export default function Services() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow relative z-10">
+              <div className="p-6 md:p-8 flex flex-col grow relative z-10">
                 
                 {/* Decorative Data Graph SVG (Hidden subtly in corner) */}
                 <svg className="absolute -bottom-4 -right-4 w-32 h-32 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 text-blue-600 pointer-events-none" viewBox="0 0 100 100">
@@ -181,7 +181,7 @@ export default function Services() {
 
                 <div className="relative z-20">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50/50 border border-blue-100 group-hover:bg-blue-600 group-hover:scale-110 transition-all duration-500 shadow-sm relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/0 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-tr from-blue-600/0 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <service.icon 
                       className="h-6 w-6 text-blue-600 group-hover:text-white transition-colors duration-500 relative z-10" 
                       aria-hidden="true" 
@@ -199,7 +199,7 @@ export default function Services() {
                 
                 {/* Tech Terminal Footer */}
                 <div className="mt-auto relative z-20">
-                  <div className="h-px w-full bg-gradient-to-r from-slate-200 via-slate-200 to-transparent mb-4"></div>
+                  <div className="h-px w-full bg-linear-to-r from-slate-200 via-slate-200 to-transparent mb-4"></div>
                   <div className="flex items-center justify-between text-xs font-mono text-slate-400">
                     <span className="flex items-center">
                       <span className="text-blue-500 mr-2 group-hover:translate-x-1 transition-transform duration-300">{'>'}</span> 
