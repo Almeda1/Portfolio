@@ -49,7 +49,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gray-800 bg-gray-900/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-800/60 bg-[#020617]/80 backdrop-blur-xl font-sans">
+      {/* Top thin line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+      
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
         {/* Left Section: Mobile Toggle & Brand Logo */}
@@ -57,7 +60,7 @@ export default function Navbar() {
           {/* Mobile Hamburger Button */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 -ml-2 text-gray-400 hover:bg-gray-800 hover:text-white focus:outline-none md:hidden transition-colors"
+            className="inline-flex items-center justify-center rounded-sm p-2 -ml-2 text-slate-400 hover:bg-slate-800 hover:text-blue-400 border border-transparent hover:border-slate-700/50 focus:outline-none md:hidden transition-all"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-expanded={isMobileMenuOpen}
           >
@@ -79,7 +82,7 @@ export default function Navbar() {
           <a 
             href="#hero" 
             onClick={(e) => scrollToSection(e, 'hero')}
-            className="flex items-center gap-2 transition hover:opacity-80"
+            className="hidden md:flex items-center gap-2 transition hover:opacity-80"
           >
             <img 
               src="/logo.png" 
@@ -90,18 +93,21 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex gap-8">
-          {navLinks.map((link) => (
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link, index) => (
             <a 
               key={link.id}
               href={`#${link.id}`} 
               onClick={(e) => scrollToSection(e, link.id)} 
-              className={`text-sm font-medium transition-colors duration-300 ${
+              className={`group flex items-center gap-1.5 text-[11px] font-mono tracking-widest uppercase transition-all duration-300 ${
                 activeSection === link.id 
-                  ? "text-blue-500 scale-105" 
-                  : "text-gray-300 hover:text-blue-400"
+                  ? "text-blue-400" 
+                  : "text-slate-400 hover:text-blue-300"
               }`}
             >
+              <span className={`text-[9px] transition-colors ${activeSection === link.id ? 'text-blue-500/80' : 'text-slate-600 group-hover:text-blue-500/50'}`}>
+                0{index + 1}.
+              </span>
               {link.name}
             </a>
           ))}
@@ -112,34 +118,40 @@ export default function Navbar() {
           <a 
             href="#contact" 
             onClick={(e) => scrollToSection(e, 'contact')}
-            className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            className="group relative inline-flex items-center justify-center px-5 py-2.5 text-[11px] font-mono font-bold tracking-widest text-blue-400 bg-blue-900/20 border border-blue-500/30 hover:border-blue-400 hover:bg-blue-600/20 transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] overflow-hidden rounded-sm"
           >
-            Hire Me
+            <span className="absolute inset-0 w-full h-full -translate-x-full bg-blue-500/20 group-hover:animate-[slide_1s] pointer-events-none"></span>
+            [ HIRE_ME ]
           </a>
         </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-800 bg-gray-900/95 backdrop-blur-md">
+      <div 
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-slate-800/80 bg-[#020617]/95 backdrop-blur-xl">
           <div className="space-y-1 px-4 pb-4 pt-2">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={(e) => scrollToSection(e, link.id)}
-                className={`block rounded-md px-3 py-3 text-base font-medium transition-colors ${
+                className={`block rounded-sm border-l-2 px-3 py-3 text-xs font-mono tracking-widest uppercase transition-colors ${
                   activeSection === link.id
-                    ? "bg-gray-800 text-blue-500"
-                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                    ? "bg-slate-900/50 text-blue-400 border-blue-500"
+                    : "border-transparent text-slate-400 hover:bg-slate-900/30 hover:text-blue-300 hover:border-slate-700"
                 }`}
               >
+                <span className="text-slate-600 mr-2">0{index + 1}.</span>
                 {link.name}
               </a>
             ))}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
