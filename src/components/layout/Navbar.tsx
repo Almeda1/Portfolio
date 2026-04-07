@@ -22,7 +22,7 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll("section[id], #hero");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
