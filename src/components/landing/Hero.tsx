@@ -54,7 +54,7 @@ const HeroSection = () => {
           {/* Role and Icon */}
           <div className="flex items-center justify-center md:justify-start gap-3 mt-2 md:mt-2 animate-fade-up delay-100">
             <span className="text-lg md:text-lg text-slate-300 tracking-wide font-light">
-              Full-Stack Engineer
+              Full-Stack Developer
             </span>
             <Icon name="terminal" />
           </div>
