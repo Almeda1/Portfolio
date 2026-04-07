@@ -247,7 +247,7 @@ export default function Contact() {
                 </div>
 
                 <div className="relative">
-                  <label htmlFor="subject" className="block text-[10px] font-mono text-slate-500 mb-1 uppercase tracking-wider">VAR_03 // DIRECTIVE</label>
+                  <label htmlFor="subject" className="block text-[10px] font-mono text-slate-500 mb-1 uppercase tracking-wider">VAR_03 // SUBJECT</label>
                   <input
                     type="text"
                     name="subject"
@@ -262,14 +262,14 @@ export default function Contact() {
                 </div>
 
                 <div className="relative">
-                  <label htmlFor="message" className="block text-[10px] font-mono text-slate-500 mb-1 uppercase tracking-wider">VAR_04 // PAYLOAD</label>
+                  <label htmlFor="message" className="block text-[10px] font-mono text-slate-500 mb-1 uppercase tracking-wider">VAR_04 // DESCRIPTION</label>
                   <textarea
                     name="message"
                     id="message"
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="WRITE_MESSAGE_PAYLOAD..."
+                    placeholder="WRITE_MESSAGE_DESCRIPTION..."
                     required
                     className="terminal-input w-full bg-transparent border border-slate-800 p-3 text-sm font-mono text-slate-200 placeholder-slate-700 focus:outline-none focus:border-transparent transition-colors resize-none mt-2 custom-scrollbar"
                   />
