@@ -9,8 +9,10 @@ import {
 // ASSETS
 // ----------------------------------------------------------------------
 // Existing Assets
-import habitVaultImage from '../../assets/habitvault.png'; 
-import habitVaultLogo from '../../assets/habitvault-logo.png'; 
+import easyPropertyImage from '../../assets/easyproperty.png'; 
+import easyPropertyLogo from '../../assets/easyproperty-logo2.png'; 
+import hazalaImage from '../../assets/hazala.png';
+import hazalaLogo from '../../assets/hazala-logo2.png';
 
 
 // NEW ASSETS (Make sure these files exist in your assets folder)
@@ -42,7 +44,7 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
+{
   title: "ÉCLAT",
   shortDescription: "A premium e-commerce platform for luxury timepieces, featuring a bespoke minimalist interface and real-time inventory management.",
   fullDescription: "ÉCLAT is a high-fidelity e-commerce experience designed to mirror the precision of the Swiss watches it curates. Built with a 'content-first' approach, it moves away from cluttered storefronts to offer a refined, distraction-free shopping journey. The platform powers real-time product data via Supabase, features a custom global state management system for the cart, and utilizes advanced filtering logic to deliver a seamless, performant user experience.",
@@ -53,7 +55,7 @@ const projects: Project[] = [
   status: "Deployed",
   link: "https://eclat-swiss.vercel.app/",
 },
-   {
+  {
     title: "CROWNLITH LOGISTICS",
     shortDescription: "A logistics company website focused on service clarity, credibility, and lead generation for transport and delivery solutions.",
     fullDescription: "Crownlith Logistics is a professional corporate website designed to establish credibility and service clarity. It showcases global shipping solutions, transport services, and delivery logistics. The site is optimized for lead generation, helping customers easily understand service offerings and get in touch for their logistical needs.",
@@ -66,28 +68,28 @@ const projects: Project[] = [
     // repoLink: "https://github.com/yourusername/crownlith"
   },
   {
-    title: "HABITVAULT",
-    shortDescription: "A habit-tracking and productivity system focused on consistency, streaks, and long-term personal growth.",
-    fullDescription: "HabitVault is a habit-tracking and productivity system built for users who want structure without friction. It allows users to build positive habits like reading, exercising, or studying by tracking daily progress. The application features data visualization for completion rates and streaks to keep users motivated on their journey to self-improvement.",
-    tags: ["React.js", "Tailwind CSS", "Firebase"],
-    fullTags: ["React.js", "Tailwind CSS", "Firebase", "NoSQL"],
-    image: habitVaultImage, 
-    logo: habitVaultLogo,
+    title: "EASYPROPERTY",
+    shortDescription: "A real estate property listing and management platform designed for efficiency and user experience.",
+    fullDescription: "EasyProperty is a comprehensive real estate platform that streamlines property listings, management, and user interactions. It provides a seamless experience for both agents and clients, featuring advanced search capabilities, virtual tours, and integrated communication tools.",
+    tags: ["React.js", "Tailwind CSS", "Flutterwave API"],
+    fullTags: ["React.js", "Tailwind CSS", "Flutterwave API", "State Management", "UI/UX Design"],
+    image: easyPropertyImage, 
+    logo: easyPropertyLogo,
     status: "Deployed",
-    link: "https://habitvault-self.vercel.app",
-    // repoLink: "https://github.com/yourusername/habit-vault" 
+    link: "https://easyproperty.vercel.app",
+    // repoLink: "https://github.com/yourusername/easyproperty" 
   },
-   {
-    title: "NAIRATRACK",
-    shortDescription: "A personal finance tracker tailored for Nigerian users to monitor expenses, manage income, and gain financial clarity in Naira.",
-    fullDescription: "NairaTrack is a smart personal finance tracker tailored for Nigerian users. It helps individuals monitor their daily expenses, manage income sources, and gain financial clarity—all denominated in Naira. The dashboard provides intuitive insights to help users budget like a pro and achieve financial freedom.",
-    tags: ["React.js", "Tailwind CSS", "Charting"],
-    fullTags: ["React.js", "Tailwind CSS", "Charting Libraries", "State Management"],
-    image: nairaTrackImage, 
-    logo: nairaTrackLogo,
+  {
+    title: "HAZALA COSMETICS",
+    shortDescription: "Cosmetics and beauty product platform with product catalogue, brand storytelling, and purchase workflows.",
+    fullDescription: "Hazala Cosmetics is a specialized e-commerce platform for beauty products. It features a comprehensive product catalogue, engaging brand storytelling, and a streamlined purchase workflow.",
+    tags: ["React.js", "Tailwind CSS", "E-commerce"],
+    fullTags: ["React.js", "Tailwind CSS", "E-commerce", "Product Catalogue"],
+    image: hazalaImage, 
+    logo: hazalaLogo,
     status: "Deployed",
-    link: "https://naira-track.vercel.app", 
-    // repoLink: "https://github.com/yourusername/naira-track"
+    link: "https://hazalacosmetics.vercel.app", 
+    // repoLink: "https://github.com/yourusername/hazala-cosmetics"
   },
   {
     title: "CHOPS & HAMPERS",
@@ -101,6 +103,19 @@ const projects: Project[] = [
     link: "https://chopsandhampersbymimi.vercel.app", 
     // repoLink: "https://github.com/yourusername/chops-hampers"
   },
+ {
+    title: "NAIRATRACK",
+    shortDescription: "A personal finance tracker tailored for Nigerian users to monitor expenses, manage income, and gain financial clarity in Naira.",
+    fullDescription: "NairaTrack is a smart personal finance tracker tailored for Nigerian users. It helps individuals monitor their daily expenses, manage income sources, and gain financial clarity—all denominated in Naira. The dashboard provides intuitive insights to help users budget like a pro and achieve financial freedom.",
+    tags: ["React.js", "Tailwind CSS", "Charting"],
+    fullTags: ["React.js", "Tailwind CSS", "Charting Libraries", "State Management"],
+    image: nairaTrackImage, 
+    logo: nairaTrackLogo,
+    status: "Deployed",
+    link: "https://naira-track.vercel.app", 
+    // repoLink: "https://github.com/yourusername/naira-track"
+  },
+  
 ];
 
 export default function Portfolio() {

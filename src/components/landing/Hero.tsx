@@ -69,7 +69,7 @@ const HeroSection = () => {
             <div className="relative group">
               <div className="absolute -inset-2 bg-linear-to-r from-blue-500/50 to-cyan-500/50 rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-500 md:block"></div>
               <a href="#contact" className="relative flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-slate-900/80 border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-800 transition-colors shadow-lg shadow-blue-900/20 text-sm md:text-base">
-                Get Started
+                Get in Touch
                 <Icon name="arrowRight" className="text-slate-300 w-4 h-4 md:w-5 md:h-5" />
               </a>
             </div>

@@ -121,7 +121,7 @@ export default function Navbar() {
             className="group relative inline-flex items-center justify-center px-5 py-2.5 text-[11px] font-mono font-bold tracking-widest text-blue-400 bg-blue-900/20 border border-blue-500/30 hover:border-blue-400 hover:bg-blue-600/20 transition-all hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] overflow-hidden rounded-sm"
           >
             <span className="absolute inset-0 w-full h-full -translate-x-full bg-blue-500/20 group-hover:animate-[slide_1s] pointer-events-none"></span>
-            [ HIRE_ME ]
+            [ CONTACT_ME ]
           </a>
         </div>
       </div>
