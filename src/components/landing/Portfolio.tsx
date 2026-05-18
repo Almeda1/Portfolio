@@ -40,6 +40,7 @@ interface Project {
   status: string;
   logo: string; 
   link: string;
+  category?: string;
   // repoLink: string; // 2. Un-comment to restore type definition
 }
 
@@ -54,6 +55,7 @@ const projects: Project[] = [
   logo: eclatLogo,  
   status: "Deployed",
   link: "https://eclat-swiss.vercel.app/",
+  category: "Full Stack Development",
 },
   {
     title: "CROWNLITH LOGISTICS",
@@ -77,6 +79,7 @@ const projects: Project[] = [
     logo: easyPropertyLogo,
     status: "Deployed",
     link: "https://easyproperty.vercel.app",
+    category: "Full Stack Development",
     // repoLink: "https://github.com/yourusername/easyproperty" 
   },
   {
@@ -89,6 +92,7 @@ const projects: Project[] = [
     logo: hazalaLogo,
     status: "Deployed",
     link: "https://hazalacosmetics.vercel.app", 
+     category: "Full Stack Development",
     // repoLink: "https://github.com/yourusername/hazala-cosmetics"
   },
   {
@@ -350,7 +354,7 @@ export default function Portfolio() {
                         </span>
                       </div>
                       <p className="text-slate-500 text-sm font-mono flex items-center gap-2">
-                          System.Overview <span className="text-blue-500">::</span> Frontend Development
+                          System.Overview <span className="text-blue-500">::</span> {selectedProject.category || "Frontend Development"}
                       </p>
                     </div>
                   </div>
