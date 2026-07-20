@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
+import { useThemeMode } from '@/hooks/useThemeMode';
+
+const LiquidMetalBlobScene = lazy(() => import('@/components/landing/LiquidMetalBlobScene'));
 
 interface IconProps {
   name: string;
@@ -18,6 +21,9 @@ const Icon = ({ name, className }: IconProps) => {
     github: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
     ),
+    linkedin: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11 19H5V8h3v11zM6.5 6.7A1.7 1.7 0 1 1 6.5 3.3a1.7 1.7 0 0 1 0 3.4zM19 19h-3v-5.6c0-1.3-.3-2.2-1.5-2.2-.9 0-1.4.6-1.6 1.1-.1.2-.1.5-.1.8V19h-3V8h3v1.5c.4-.7 1.2-1.7 3-1.7 2.2 0 3.9 1.5 3.9 4.7V19z"/></svg>
+    ),
     dribbble: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm0-22c-5.514 0-10 4.486-10 10 0 2.222.723 4.27 1.936 5.91-.497-2.678.077-5.594 1.7-8.156-2.036-.595-3.666-.08-3.666-.08.411-1.789 1.344-3.375 2.656-4.576 1.636 1.488 4.276 2.083 6.703 1.83-1.603-2.903-3.605-5.312-3.605-5.312C9.171 2.264 10.551 2 12 2c5.514 0 10 4.486 10 10 0 .526-.046 1.042-.128 1.547-1.751-.762-3.951-1.127-6.204-.982-1.182 2.376-2.614 4.545-4.237 6.42a15.758 15.758 0 01-1.89-6.495c-1.748.406-3.235 1.378-4.212 2.766 1.54 3.018 3.999 5.253 6.885 6.402A9.957 9.957 0 0012 22c5.449 0 9.886-4.364 9.995-9.789a11.96 11.96 0 00-4.045 1.053c1.55 3.332 2.502 6.96 2.645 10.424A9.972 9.972 0 0022 12c0-5.514-4.486-10-10-10z"/></svg>
     ),
@@ -31,209 +37,159 @@ const Icon = ({ name, className }: IconProps) => {
   return <span className={className}>{icons[name] || <span className="text-sm">?</span>}</span>;
 };
 
+const rotatingTitles = ['Full-Stack Developer', 'Frontend Engineer', 'Product Builder', 'Web Developer', 'Intelligent Systems Builder', 'UI Engineer'];
+
 
 const HeroSection = () => {
+  const { isDark } = useThemeMode();
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [typedTitle, setTypedTitle] = useState(rotatingTitles[0].slice(0, 1));
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isSceneVisible, setIsSceneVisible] = useState(true);
+  const [pointerTarget, setPointerTarget] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const currentTitle = rotatingTitles[titleIndex];
+    const typingSpeed = isDeleting ? 55 : 95;
+    const pauseDelay = !isDeleting && typedTitle === currentTitle ? 1200 : 0;
+    const timer = window.setTimeout(() => {
+      if (!isDeleting && typedTitle === currentTitle) {
+        setIsDeleting(true);
+        return;
+      }
+
+      if (isDeleting && typedTitle === '') {
+        setIsDeleting(false);
+        setTitleIndex((currentIndex) => (currentIndex + 1) % rotatingTitles.length);
+        return;
+      }
+
+      setTypedTitle((currentText) => {
+        if (isDeleting) {
+          return currentText.slice(0, -1);
+        }
+
+        return currentTitle.slice(0, currentText.length + 1);
+      });
+    }, pauseDelay || typingSpeed);
+
+    return () => window.clearTimeout(timer);
+  }, [isDeleting, titleIndex, typedTitle]);
+
+  useEffect(() => {
+    const element = heroRef.current;
+
+    if (!element || typeof IntersectionObserver === 'undefined') {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSceneVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.2,
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    const element = heroRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const rect = element.getBoundingClientRect();
+    const normalizedX = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+    const normalizedY = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+
+    setPointerTarget({
+      x: Math.max(-1, Math.min(1, normalizedX)),
+      y: Math.max(-1, Math.min(1, normalizedY)),
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setPointerTarget({ x: 0, y: 0 });
+  };
+
   return (
-    <div id="hero" className="relative h-screen w-full font-sans bg-[#020617] text-slate-100 overflow-hidden flex flex-col justify-center items-center p-4">
-      
-      {/* Background Gradient & Starry Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-blue-900/20 via-[#020617] to-[#020617] z-0"></div>
+    <div
+      id="hero"
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`relative min-h-screen w-full font-sans overflow-hidden flex flex-col justify-center items-center p-4 ${isDark ? 'text-slate-100' : 'text-slate-900'}`}
+    >
+      <div className="pointer-events-none absolute inset-0 z-0 flex w-full translate-y-0 items-center justify-center opacity-45 lg:inset-auto lg:right-[7%] lg:top-[54%] lg:z-5 lg:w-[34%] lg:-translate-y-1/2 lg:opacity-100">
+        <div className="h-[min(52vh,430px)] w-full translate-x-0 md:h-[min(70vh,680px)] lg:h-[min(62vh,620px)] lg:translate-x-[6%]">
+          <Suspense fallback={null}>
+            <LiquidMetalBlobScene
+              active={isSceneVisible}
+              pointerTarget={pointerTarget}
+              isDark={isDark}
+            />
+          </Suspense>
+        </div>
+      </div>
 
       <div className="w-full max-w-300 h-full max-h-200 grid grid-cols-1 lg:grid-cols-2 gap-8 z-10 relative">
         
         {/* LEFT SIDE: Text Column */}
-        <div className="flex flex-col justify-center text-center md:text-left items-center md:items-start gap-6 md:gap-4 p-4 sm:p-8 md:p-6 lg:pr-0 mt-8 md:mt-0">
+        <div className="flex flex-col justify-center text-center lg:text-left items-center lg:items-start gap-5 md:gap-6 p-4 sm:p-8 md:mx-auto md:max-w-2xl md:p-6 lg:mx-0 lg:max-w-none lg:pr-0 mt-8 md:mt-0">
           
-          <h1 className="text-5xl sm:text-6xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-white animate-fade-up">
-            Engineering the<br className="hidden md:block"/>
-            <span className="font-serif italic font-normal text-white">
-              {" "}future of the web.
-            </span>
-          </h1>
+         <h1 className={`text-5xl sm:text-6xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight animate-fade-up ${isDark ? 'text-white' : 'text-slate-900'}`}>
+  Engineering impact<br className="hidden md:block" />
+  <span className={`font-serif italic font-normal ${isDark ? 'text-white' : 'text-slate-700'}`}>
+    {' '}through technology.
+  </span>
+</h1>
 
           {/* Role and Icon */}
-          <div className="flex items-center justify-center md:justify-start gap-3 mt-2 md:mt-2 animate-fade-up delay-100">
-            <span className="text-lg md:text-lg text-slate-300 tracking-wide font-light">
-              Full-Stack Developer
+          <div className="flex items-center justify-center lg:justify-start gap-3 mt-1 md:mt-1 animate-fade-up delay-100">
+            <span className={`min-h-6 text-base sm:text-lg tracking-wide font-light ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+              {typedTitle}
+              <span className="ml-0.5 inline-block animate-cursor">|</span>
             </span>
-            <Icon name="terminal" />
+            <Icon name="terminal" className="scale-90 origin-left" />
           </div>
 
-          {/* Body Paragraph */}
-          <p className="text-base sm:text-lg md:text-base text-slate-400 max-w-2xl md:max-w-lg leading-relaxed mt-2 md:mt-1 animate-fade-up delay-200">
-            Bridging the gap between exceptional design and robust engineering. I build scalable, interactive web applications that users love.
+          <p className={`hidden md:block max-w-xl text-sm lg:text-base leading-relaxed animate-fade-up delay-200 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+            I design and develop web experiences that balance visual clarity, intuitive usability, and reliable engineering. Every build is tuned for speed, polish, and a consistent user experience across devices.
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-row items-center justify-center md:justify-start gap-4 mt-6 md:mt-5 animate-fade-up delay-300">
-            <div className="relative group">
-              <div className="absolute -inset-2 bg-linear-to-r from-blue-500/50 to-cyan-500/50 rounded-xl blur-lg opacity-60 group-hover:opacity-100 transition duration-500 md:block"></div>
-              <a href="#contact" className="relative flex items-center justify-center gap-2 px-5 py-2.5 md:px-6 md:py-3 bg-slate-900/80 border border-slate-600 rounded-xl text-white font-medium hover:bg-slate-800 transition-colors shadow-lg shadow-blue-900/20 text-sm md:text-base">
-                Get in Touch
-                <Icon name="arrowRight" className="text-slate-300 w-4 h-4 md:w-5 md:h-5" />
+          <div className="flex flex-col items-stretch justify-center lg:items-start gap-3 mt-5 md:mt-4 w-full max-w-80">
+            <a href="https://drive.google.com/file/d/1tk00XTLz2nBKSEo_D-sLLjsnWLvP8qkh/view?usp=drivesdk" target="_blank" rel="noreferrer" className={`inline-flex items-center justify-center gap-2.5 h-12 px-4 rounded-lg font-semibold transition-colors shadow-lg text-sm w-full animate-rise-up ${isDark ? 'bg-slate-50 text-slate-900 hover:bg-white shadow-blue-900/20' : 'bg-slate-50 text-slate-900 hover:bg-white shadow-black/10'} border border-slate-200`}>
+              <span className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white/80 p-1.5">
+                <svg className="w-5 h-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" d="M7 7V3a1 1 0 011-1h5.586a1 1 0 01.707.293l3.414 3.414A1 1 0 0118 6.414V21a1 1 0 01-1 1H8a1 1 0 01-1-1V7z" /><path strokeLinecap="round" strokeLinejoin="round" d="M13 2v4a1 1 0 001 1h4" /></svg>
+              </span>
+              Resume
+            </a>
+
+            <div className="flex flex-row items-stretch justify-center lg:justify-start gap-3 w-full">
+              <a href="#contact" className={`flex-[1.55] inline-flex items-center justify-center h-12 px-4 rounded-lg font-semibold transition-colors text-base ${isDark ? 'bg-slate-950 border border-slate-800 text-white hover:bg-slate-900' : 'bg-slate-950 border border-slate-800 text-white hover:bg-slate-800'}`}>
+                Hire Me
+              </a>
+
+              <a href="https://github.com/Almeda1" target="_blank" rel="noreferrer" aria-label="GitHub" className={`inline-flex h-12 w-12 items-center justify-center rounded-lg border transition-colors ${isDark ? 'border-slate-800 bg-slate-950 text-white hover:bg-slate-900' : 'border-slate-200 bg-slate-950 text-white hover:bg-slate-800'}`}>
+                <Icon name="github" className="w-5 h-5" />
+              </a>
+
+              <a href="https://www.linkedin.com/in/oscar-okomadu-04154a41b/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className={`inline-flex h-12 w-12 items-center justify-center rounded-lg border transition-colors ${isDark ? 'border-slate-800 bg-slate-950 text-white hover:bg-slate-900' : 'border-slate-200 bg-slate-950 text-white hover:bg-slate-800'}`}>
+                <Icon name="linkedin" className="w-5 h-5" />
               </a>
             </div>
-            
-            <a href="#work" className="inline-flex items-center justify-center px-5 py-2.5 md:px-6 md:py-3 bg-transparent border border-slate-700/80 rounded-xl text-slate-300 font-medium hover:bg-slate-800/50 hover:text-white transition-colors text-sm md:text-base">
-              View Projects
-            </a>
           </div>
         </div>
 
-        {/* RIGHT SIDE: Complex Glassmorphic Cluster */}
-        <div className="relative h-120 lg:h-150 w-full hidden md:flex items-center justify-center scale-[0.65] lg:scale-[0.80] origin-center -ml-4">
-          
-          {/* Subtle dot grid background */}
-          <div className="absolute -inset-25 z-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at center, #38bdf8 1px, transparent 1px)', backgroundSize: '40px 40px', maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' }}></div>
-
-          {/* Connecting Lines SVG — hub to each card, z-index below cards */}
-          {/* Coords adjusted for exact center of smaller cards to the Central Hub (Code Editor) at roughly (50, 50) */}
-          <svg
-            className="absolute inset-0 w-full h-full z-10 pointer-events-none animate-path delay-1000"
-            preserveAspectRatio="none"
-            viewBox="0 0 100 100"
-          >
-            {/* Hub → Key Metrics (top-left card) */}
-            <path d="M 50,50 Q 30,30 20,20" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" opacity="0.4" vectorEffect="non-scaling-stroke" />
-            {/* Hub → Modern Stack (top-right card) */}
-            <path d="M 50,50 Q 70,30 80,20" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" opacity="0.4" vectorEffect="non-scaling-stroke" />
-            {/* Hub → Performance (middle-left card) */}
-            <path d="M 50,50 Q 25,48 10,50" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" opacity="0.4" vectorEffect="non-scaling-stroke" />
-            {/* Hub → Analytics (middle-right card) */}
-            <path d="M 50,50 Q 75,48 90,50" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" opacity="0.4" vectorEffect="non-scaling-stroke" />
-            {/* Hub → Network Nodes (bottom-left cluster) */}
-            <path d="M 50,50 Q 35,65 20,80" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" opacity="0.4" vectorEffect="non-scaling-stroke" />
-            {/* Hub → System.init (bottom-right console) */}
-            <path d="M 50,50 Q 65,65 80,80" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" fill="none" opacity="0.4" vectorEffect="non-scaling-stroke" />
-
-            {/* Hub node pulse dot */}
-            <circle cx="50" cy="50" r="1.5" fill="#38bdf8" opacity="0.9" className="animate-pulse" />
-
-            {/* Endpoint dots at each card */}
-            <circle cx="20" cy="20" r="1" fill="#38bdf8" opacity="0.6" />
-            <circle cx="80" cy="20" r="1" fill="#38bdf8" opacity="0.6" />
-            <circle cx="10" cy="50" r="1" fill="#38bdf8" opacity="0.6" />
-            <circle cx="90" cy="50" r="1" fill="#38bdf8" opacity="0.6" />
-            <circle cx="20" cy="80" r="1" fill="#38bdf8" opacity="0.6" />
-            <circle cx="80" cy="80" r="1" fill="#38bdf8" opacity="0.6" />
-          </svg>
-
-          {/* Key metrics (Top Left) */}
-          <div className="absolute top-[15%] left-[5%] p-2.5 glassmorphic rounded-2xl border border-yellow-700/30 shadow-2xl z-20 flex items-center gap-2.5 bg-yellow-950/10 backdrop-blur-md scale-90 animate-fade-scale delay-400">
-            <div className="w-8 h-8 rounded-lg bg-yellow-600/20 border border-yellow-600/30 flex justify-center items-center text-yellow-500">
-               <Icon name="barChart" className="scale-75" />
-            </div>
-            <div className="pr-3">
-              <span className="block text-lg font-bold text-slate-100 leading-none mb-1">3,234</span>
-              <span className="text-[10px] text-slate-400">Key metrics</span>
-            </div>
-          </div>
-
-          {/* Modern Stack Cards (Top Right) */}
-          <div className="absolute top-[0%] -right-[5%] w-46.25 glassmorphic p-4 rounded-xl border border-slate-700/50 shadow-2xl z-20 bg-slate-900/40 backdrop-blur-md scale-[0.85] animate-fade-scale delay-500">
-            <h4 className="font-medium text-slate-200 text-sm">Modern Stack</h4>
-            <p className="text-[10px] text-slate-500 mb-3.5">Layers</p>
-            <div className="relative h-15 w-full perspective-[1000px]">
-              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800 rounded-lg border border-blue-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(18px)' }}></div>
-              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800/80 rounded-lg border border-teal-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(9px)' }}></div>
-              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800/60 rounded-lg border border-indigo-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(0px)' }}></div>
-              <div className="absolute top-0 left-3 w-22 h-12.5 bg-slate-800/40 rounded-lg border border-purple-500/30 shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-2" style={{ transform: 'rotateX(60deg) rotateZ(-45deg) translateZ(-9px)' }}></div>
-            </div>
-          </div>
-
-          {/* Performance Card (Middle Left) */}
-          <div className="absolute top-[50%] -left-[5%] -translate-y-1/2 w-40 p-3 glassmorphic rounded-lg border border-slate-700/50 shadow-2xl z-30 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-600">
-            <div className="flex justify-between items-center mb-2">
-                <h4 className="font-medium text-slate-200 text-xs">Performance</h4>
-                <div className="flex items-center text-slate-400 text-[10px]">
-                    zap <Icon name="zap" className="ml-1 text-slate-500 scale-75" />
-                </div>
-            </div>
-            <div className="w-full h-12 rounded-md bg-linear-to-br from-slate-800 via-slate-900 to-teal-900/40 border border-slate-700/50 relative overflow-hidden">
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-teal-500/20 to-transparent blur-md"></div>
-                <div className="absolute inset-0 flex items-center justify-center text-slate-500 opacity-20">
-                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 100 C 20 80, 50 100, 100 20 L 100 100 Z" fill="currentColor"/></svg>
-                </div>
-            </div>
-          </div>
-
-          {/* Code editor — THE HUB (Dead Center) */}
-          <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-62.5 aspect-square flex flex-col glassmorphic rounded-lg border border-slate-700/60 shadow-[0_0_50px_rgba(56,189,248,0.15)] z-40 bg-slate-900/80 backdrop-blur-xl overflow-hidden scale-100 animate-fade-scale delay-300">
-            <div className="bg-slate-800/60 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 shrink-0">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-              <span className="ml-2 text-[10px] text-slate-500 font-mono">Hero.tsx</span>
-            </div>
-            <div className="p-4 font-mono text-[10px] leading-relaxed text-slate-400 flex flex-col justify-center grow">
-              <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">1</span><p><span className="text-purple-400">class</span> <span className="text-yellow-200">Nodeers</span> {'{'}</p></div>
-              <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">2</span><p className="pl-3"><span className="text-purple-400">return</span> (</p></div>
-              <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">3</span><p className="pl-6"><span className="text-blue-400">const</span> ideter = <span className="text-green-300">"UI"</span>;</p></div>
-              <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">4</span><p className="pl-6">collection.clear();</p></div>
-              <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">5</span><p className="pl-3">);</p></div>
-              <div className="flex"><span className="w-4 text-slate-600 text-right pr-2 select-none">6</span><p>{'}'}</p></div>
-              <div className="flex mt-1"><span className="w-4 text-slate-600 text-right pr-2 select-none">7</span><p><span className="text-purple-400">export default</span> <span className="text-blue-200">leave()</span></p></div>
-            </div>
-          </div>
-
-          {/* Analytics line graph (Middle Right) */}
-          <div className="absolute top-[50%] -right-[5%] -translate-y-1/2 w-40 p-3 glassmorphic rounded-lg border border-slate-700/50 shadow-2xl z-30 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-700">
-            <h4 className="font-medium text-slate-200 text-xs mb-3 flex justify-between">Analytics <span className="text-slate-400 text-[10px]">● 100</span></h4>
-            <div className="relative w-full h-12">
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 50" preserveAspectRatio="none">
-                <path d="M 0,50 L 0,30 Q 15,10 30,25 T 60,20 T 80,10 T 100,25 L 100,50 Z" fill="url(#analyticsGradient)" opacity="0.4" />
-                <path d="M 0,30 Q 15,10 30,25 T 60,20 T 80,10 T 100,25" stroke="#a855f7" strokeWidth="2" fill="none" />
-                <circle cx="80" cy="10" r="2.5" fill="#fff" className="drop-shadow-[0_0_4px_#a855f7]" />
-                <defs>
-                  <linearGradient id="analyticsGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <div className="flex justify-between mt-2 text-[8px] text-slate-500 uppercase tracking-widest">
-              <span>Mon</span><span>Wed</span><span>Fri</span>
-            </div>
-          </div>
-
-          {/* Infrastructure (Bottom Left Replacement) */}
-          <div className="absolute bottom-[5%] left-[5%] w-45 p-4 glassmorphic rounded-xl border border-blue-500/30 shadow-2xl z-20 bg-slate-900/60 backdrop-blur-md scale-90 animate-fade-scale delay-800">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
-                <Icon name="terminal" className="scale-75" />
-              </div>
-              <h4 className="font-medium text-slate-200 text-xs">Infrastructure</h4>
-            </div>
-            <div className="space-y-2 mt-2">
-              <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-blue-500 w-[85%]"></div>
-              </div>
-              <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-teal-500 w-[60%]"></div>
-              </div>
-              <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-purple-500 w-[45%]"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* System.init() console (Bottom Right) */}
-          <div className="absolute bottom-[10%] right-[5%] w-60 glassmorphic rounded-lg border border-slate-700/60 shadow-2xl z-40 bg-slate-900/80 backdrop-blur-xl scale-90 animate-fade-scale delay-900">
-             <div className="bg-slate-800/80 px-3 py-2 flex items-center gap-1.5 border-b border-slate-700/50 rounded-t-lg">
-              <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-slate-600"></div>
-            </div>
-            <div className="p-4 font-mono">
-              <p className="text-white font-semibold text-sm flex items-center gap-2">
-                <span className="text-slate-400">{'>_'}</span> System.init()
-              </p>
-              <div className="w-2/3 h-2 mt-2 bg-slate-800 rounded animate-pulse"></div>
-            </div>
-          </div>
-
-        </div>
+        <div className="hidden lg:block" />
       </div>
     </div>
   );
@@ -286,6 +242,21 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
       }
       .animate-fade-in {
         animation: fadeIn 1s ease-out forwards;
+        opacity: 0;
+      }
+      @keyframes cursorBlink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      .animate-cursor {
+        animation: cursorBlink 1s steps(1, end) infinite;
+      }
+      @keyframes riseUp {
+        0% { opacity: 0; transform: translateY(22px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      .animate-rise-up {
+        animation: riseUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         opacity: 0;
       }
       .animate-path {
