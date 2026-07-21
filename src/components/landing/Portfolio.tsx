@@ -274,7 +274,7 @@ export default function Portfolio() {
                         href={selectedProject.link} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex-shrink-0 inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-[8px] font-semibold transition-all ${isDark ? 'bg-black text-white hover:bg-slate-900' : 'bg-black text-white hover:bg-slate-950'} border ${isDark ? 'border-slate-700/60' : 'border-slate-300/60'}`}
+                        className={`shrink-0 inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-[8px] font-semibold transition-all ${isDark ? 'bg-black text-white hover:bg-slate-900' : 'bg-black text-white hover:bg-slate-950'} border ${isDark ? 'border-slate-700/60' : 'border-slate-300/60'}`}
                       >
                         Visit
                         <ArrowUpRight className="h-3 w-3" />
@@ -361,7 +361,7 @@ export default function Portfolio() {
                         href={selectedProject.link} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex-shrink-0 inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-[10px] font-semibold transition-all ${isDark ? 'bg-black text-white hover:bg-slate-900' : 'bg-black text-white hover:bg-slate-950'} border ${isDark ? 'border-slate-700/60' : 'border-slate-300/60'}`}
+                        className={`shrink-0 inline-flex items-center justify-center gap-1 rounded-lg px-2.5 py-1.5 text-[10px] font-semibold transition-all ${isDark ? 'bg-black text-white hover:bg-slate-900' : 'bg-black text-white hover:bg-slate-950'} border ${isDark ? 'border-slate-700/60' : 'border-slate-300/60'}`}
                       >
                         Visit
                         <ArrowUpRight className="h-3.5 w-3.5" />
@@ -403,7 +403,7 @@ export default function Portfolio() {
 
       {/* Image Lightbox Modal */}
       {selectedImage && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4" onClick={() => setSelectedImage(null)}>
+        <div className="fixed inset-0 z-60 flex items-center justify-center p-4" onClick={() => setSelectedImage(null)}>
           <div className="absolute inset-0 backdrop-blur-xl bg-black/90 backdrop-enter" />
           <div className="relative max-w-4xl w-full max-h-[90vh] modal-enter">
             <button
