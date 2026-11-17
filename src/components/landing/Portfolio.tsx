@@ -44,7 +44,7 @@ const projects: Project[] = [
 {
   title: "ONNEX",
   shortDescription: "A multi-tenant commerce platform that gives Nigerian businesses a free, discoverable profile and a fully branded website with built-in selling, so they can be found by customers who don't already know them.",
-  fullDescription: "Onnex is a multi-tenant SaaS platform built for Nigerian SMEs that currently sell through Instagram DMs and WhatsApp. Every business gets a free profile in a searchable Discovery directory with single-item checkout, and can upgrade to a fully branded website with a full cart, inventory tracking, an orders dashboard, analytics and a custom domain. The platform ships as three separate surfaces (a marketing site, an installable Discovery PWA and an owner dashboard PWA) that all render from one shared business record. Under the hood it includes a hand-built Paystack integration with idempotent settlement and signed webhook verification, split payments for a cross-business Discovery cart, two Pro billing models (percentage-based and flat-fee), real-time dashboard updates via Server-Sent Events, scheduled billing and payout jobs, a pre-launch waitlist with invite tokens, and an admin console for platform operations.",
+  fullDescription: "A multi-tenant commerce platform that gives Nigerian businesses a free, discoverable profile and a fully branded website with built-in selling, so they can be found by customers who don't already know them.",
   tags: ["Next.js", "TypeScript", "PostgreSQL"],
   fullTags: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Paystack API", "Redis", "Cloudflare R2", "PWA", "Server-Sent Events", "UI/UX Design"],
   image: onnexImage,
