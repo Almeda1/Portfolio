@@ -22,7 +22,7 @@ import crownlithLogo from '../../assets/crownlith-logo.png';
 import chopsImage from '../../assets/chops.png';
 import chopsLogo from '../../assets/chops-logo.png';
 import onnexImage from '../../assets/onnexImage.png';
-import onnexLogo from '../../assets/onnexlogo.png';
+import onnexLogo from '../../assets/onnexLogo.png';
 
 // ----------------------------------------------------------------------
 // TYPES & DATA
