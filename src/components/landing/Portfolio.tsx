@@ -21,8 +21,8 @@ import crownlithImage from '../../assets/crownlith.png';
 import crownlithLogo from '../../assets/crownlith-logo.png';
 import chopsImage from '../../assets/chops.png';
 import chopsLogo from '../../assets/chops-logo.png';
-import eclatImage from '../../assets/eclatImage.png';
-import eclatLogo from '../../assets/eclatlogo.png';
+import onnexImage from '../../assets/onnexImage.png';
+import onnexLogo from '../../assets/onnexlogo.png';
 
 // ----------------------------------------------------------------------
 // TYPES & DATA
@@ -42,16 +42,15 @@ interface Project {
 
 const projects: Project[] = [
 {
-  title: "ÉCLAT",
-  shortDescription: "A premium e-commerce platform for luxury timepieces, featuring a bespoke minimalist interface and real-time inventory management.",
-  fullDescription: "Premium e-commerce experience for Swiss watches built with a content-first approach. Features real-time product data via Supabase, custom state management, and advanced filtering for seamless shopping.",
-  tags: ["React.js", "Tailwind CSS", "Supabase"],
-  fullTags: ["React.js", "Tailwind CSS", "Supabase", "PostgreSQL", "Context API", "UI/UX Design"],
-  image: eclatImage, 
-  logo: eclatLogo,  
-  status: "Deployed",
-  link: "https://eclat-swiss.vercel.app/",
-  category: "Full Stack Development",
+  title: "ONNEX",
+  shortDescription: "A multi-tenant commerce platform that gives Nigerian businesses a free, discoverable profile and a fully branded website with built-in selling, so they can be found by customers who don't already know them.",
+  fullDescription: "Onnex is a multi-tenant SaaS platform built for Nigerian SMEs that currently sell through Instagram DMs and WhatsApp. Every business gets a free profile in a searchable Discovery directory with single-item checkout, and can upgrade to a fully branded website with a full cart, inventory tracking, an orders dashboard, analytics and a custom domain. The platform ships as three separate surfaces (a marketing site, an installable Discovery PWA and an owner dashboard PWA) that all render from one shared business record. Under the hood it includes a hand-built Paystack integration with idempotent settlement and signed webhook verification, split payments for a cross-business Discovery cart, two Pro billing models (percentage-based and flat-fee), real-time dashboard updates via Server-Sent Events, scheduled billing and payout jobs, a pre-launch waitlist with invite tokens, and an admin console for platform operations.",
+  tags: ["Next.js", "TypeScript", "PostgreSQL"],
+  fullTags: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Paystack API", "Redis", "Cloudflare R2", "PWA", "Server-Sent Events", "UI/UX Design"],
+  image: onnexImage,
+  logo: onnexLogo,
+  status: "Pre-launch (Waitlist Open)",
+  link: "https://onnexapp.com",
 },
   {
     title: "CROWNLITH LOGISTICS",
@@ -74,7 +73,6 @@ const projects: Project[] = [
     logo: easyPropertyLogo,
     status: "Deployed",
     link: "https://easyproperty.vercel.app",
-    category: "Full Stack Development",
   },
   {
     title: "HAZALA COSMETICS",
@@ -86,7 +84,6 @@ const projects: Project[] = [
     logo: hazalaLogo,
     status: "Deployed",
     link: "https://hazalacosmetics.vercel.app", 
-     category: "Full Stack Development",
   },
   {
     title: "CHOPS & HAMPERS",
