@@ -9,20 +9,20 @@ import { useThemeMode } from '@/hooks/useThemeMode';
 // ASSETS
 // ----------------------------------------------------------------------
 // Existing Assets
-import easyPropertyImage from '../../assets/easyproperty.png'; 
-import easyPropertyLogo from '../../assets/easyproperty-logo2.png'; 
-import hazalaImage from '../../assets/hazala.png';
-import hazalaLogo from '../../assets/hazala-logo2.png';
+import easyPropertyImage from '../../assets/easyproperty.webp';
+import easyPropertyImageSmall from '../../assets/easyproperty-600.webp';
+import hazalaImage from '../../assets/hazala.webp';
+import hazalaImageSmall from '../../assets/hazala-600.webp';
 
 
-import nairaTrackImage from '../../assets/nairatrack.png';
-import nairaTrackLogo from '../../assets/nairatrack-logo.png';
-import crownlithImage from '../../assets/crownlith.png';
-import crownlithLogo from '../../assets/crownlith-logo.png';
-import chopsImage from '../../assets/chops.png';
-import chopsLogo from '../../assets/chops-logo.png';
-import onnexImage from '../../assets/onnexImage.png';
-import onnexLogo from '../../assets/onnexLogo.png';
+import nairaTrackImage from '../../assets/nairatrack.webp';
+import nairaTrackImageSmall from '../../assets/nairatrack-600.webp';
+import crownlithImage from '../../assets/crownlith.webp';
+import crownlithImageSmall from '../../assets/crownlith-600.webp';
+import onnexImage from '../../assets/onnexImage.webp';
+import onnexImageSmall from '../../assets/onnexImage-600.webp';
+import hisproImage from '../../assets/hisproImage.webp';
+import hisproImageSmall from '../../assets/hisproImage-600.webp';
 
 // ----------------------------------------------------------------------
 // TYPES & DATA
@@ -33,9 +33,9 @@ interface Project {
   fullDescription: string;
   tags: string[];
   fullTags: string[];
-  image: string; 
+  image: string;
+  imageSmall: string;
   status: string;
-  logo: string; 
   link: string;
   category?: string;
 }
@@ -46,22 +46,22 @@ const projects: Project[] = [
   shortDescription: "A multi-tenant commerce platform that gives Nigerian businesses a free, discoverable profile and a fully branded website with built-in selling, so they can be found by customers who don't already know them.",
   fullDescription: "A multi-tenant commerce platform that gives Nigerian businesses a free, discoverable profile and a fully branded website with built-in selling, so they can be found by customers who don't already know them.",
   tags: ["Next.js", "TypeScript", "PostgreSQL"],
-  fullTags: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Paystack API", "Redis", "Cloudflare R2", "PWA", "Server-Sent Events", "UI/UX Design"],
+  fullTags: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
   image: onnexImage,
-  logo: onnexLogo,
+  imageSmall: onnexImageSmall,
   status: "Pre-launch (Waitlist Open)",
   link: "https://onnexapp.com",
 },
   {
-    title: "CROWNLITH LOGISTICS",
-    shortDescription: "A logistics company website focused on service clarity, credibility, and lead generation for transport and delivery solutions.",
-    fullDescription: "Professional corporate website for global shipping and transport services. Optimized for lead generation with clear service showcases and customer engagement tools.",
-    tags: ["React.js", "Tailwind CSS", "Business"],
-    fullTags: ["React.js", "Tailwind CSS", "Business Architecture"],
-    image: crownlithImage, 
-    logo: crownlithLogo,
+    title: "HIS.PRO",
+    shortDescription: "A platform focused on letting healthcare providers build a customised hospital management system by selecting different modules and workflows based on their operational needs.",
+    fullDescription: "A platform focused on letting healthcare providers build a customised hospital management system by selecting different modules and workflows based on their operational needs.",
+    tags: ["React.js", "Tailwind CSS", "Node.js"],
+    fullTags: ["React.js", "Tailwind CSS", "Node.js", "PostgreSQL", "UI/UX Design"],
+    image: hisproImage,
+    imageSmall: hisproImageSmall,
     status: "Deployed",
-    link: "https://crownlithlogistics.vercel.app/", 
+    link: "https://his-pro-v1-0.vercel.app/",
   },
   {
     title: "EASYPROPERTY",
@@ -70,9 +70,31 @@ const projects: Project[] = [
     tags: ["React.js", "Tailwind CSS", "Flutterwave API"],
     fullTags: ["React.js", "Tailwind CSS", "Flutterwave API", "State Management", "UI/UX Design"],
     image: easyPropertyImage, 
-    logo: easyPropertyLogo,
+    imageSmall: easyPropertyImageSmall,
     status: "Deployed",
     link: "https://easyproperty.vercel.app",
+  },
+  {
+    title: "CROWNLITH LOGISTICS",
+    shortDescription: "A logistics company website focused on service clarity, credibility, and lead generation for transport and delivery solutions.",
+    fullDescription: "Professional corporate website for global shipping and transport services. Optimized for lead generation with clear service showcases and customer engagement tools.",
+    tags: ["React.js", "Tailwind CSS", "Business"],
+    fullTags: ["React.js", "Tailwind CSS", "Business Architecture"],
+    image: crownlithImage,
+    imageSmall: crownlithImageSmall,
+    status: "Deployed",
+    link: "https://crownlithlogistics.vercel.app/",
+  },
+  {
+    title: "NAIRATRACK",
+    shortDescription: "A personal finance tracker tailored for Nigerian users to monitor expenses, manage income, and gain financial clarity in Naira.",
+    fullDescription: "Smart personal finance tracker for Nigerian users. Monitor expenses, manage income, and gain financial clarity with intuitive dashboard insights denominated in Naira.",
+    tags: ["React.js", "Tailwind CSS", "Charting"],
+    fullTags: ["React.js", "Tailwind CSS", "Charting Libraries", "State Management"],
+    image: nairaTrackImage, 
+    imageSmall: nairaTrackImageSmall,
+    status: "Deployed",
+    link: "https://naira-track.vercel.app", 
   },
   {
     title: "HAZALA COSMETICS",
@@ -80,32 +102,10 @@ const projects: Project[] = [
     fullDescription: "Specialized e-commerce platform for beauty products with comprehensive catalogue, brand storytelling, and streamlined purchase workflow.",
     tags: ["React.js", "Tailwind CSS", "E-commerce"],
     fullTags: ["React.js", "Tailwind CSS", "E-commerce", "Product Catalogue"],
-    image: hazalaImage, 
-    logo: hazalaLogo,
+    image: hazalaImage,
+    imageSmall: hazalaImageSmall,
     status: "Deployed",
-    link: "https://hazalacosmetics.vercel.app", 
-  },
-  {
-    title: "CHOPS & HAMPERS",
-    shortDescription: "A food and hampers ordering website designed to highlight offerings, simplify orders, and boost customer engagement.",
-    fullDescription: "Specialized ordering platform for fresh food and gift hampers. Features daily fresh stock highlights and simplified ordering to connect customers with farm-fresh produce in Lagos.",
-    tags: ["React.js", "Tailwind CSS", "Orders"],
-    fullTags: ["React.js", "Tailwind CSS", "Order Flow Logic"],
-    image: chopsImage, 
-    logo: chopsLogo,
-    status: "Deployed",
-    link: "https://chopsandhampersbymimi.vercel.app", 
-  },
- {
-    title: "NAIRATRACK",
-    shortDescription: "A personal finance tracker tailored for Nigerian users to monitor expenses, manage income, and gain financial clarity in Naira.",
-    fullDescription: "Smart personal finance tracker for Nigerian users. Monitor expenses, manage income, and gain financial clarity with intuitive dashboard insights denominated in Naira.",
-    tags: ["React.js", "Tailwind CSS", "Charting"],
-    fullTags: ["React.js", "Tailwind CSS", "Charting Libraries", "State Management"],
-    image: nairaTrackImage, 
-    logo: nairaTrackLogo,
-    status: "Deployed",
-    link: "https://naira-track.vercel.app", 
+    link: "https://hazalacosmetics.vercel.app",
   },
   
 ];
@@ -200,8 +200,12 @@ export default function Portfolio() {
               <div className="absolute inset-0 pointer-events-none bg-slate-950" />
               <div className="absolute inset-0 pointer-events-none">
                 <img 
-                  src={project.image} 
-                  alt={project.title} 
+                  src={project.imageSmall}
+                  srcSet={`${project.imageSmall} 600w, ${project.image} 1400w`}
+                  sizes="(max-width: 639px) calc(100vw - 48px), (max-width: 1023px) calc(50vw - 32px), (max-width: 1279px) calc(33vw - 32px), 384px"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
                 />
               </div>
@@ -238,6 +242,7 @@ export default function Portfolio() {
                   <img 
                     src={selectedProject.image} 
                     alt={selectedProject.title} 
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform group-hover:scale-105" 
                   />
                   <div className={`absolute inset-0 bg-linear-to-t ${isDark ? 'from-black/85 via-black/20' : 'from-white/70 via-white/10'} to-transparent`} />

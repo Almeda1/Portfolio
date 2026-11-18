@@ -2,15 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import { MoonStar, SunMedium } from 'lucide-react';
 import { useThemeMode } from '@/hooks/useThemeMode';
 // Dark mode preview screenshots
-import previewHeroDark from '@/assets/preview-hero.png';
-import previewProjectsDark from '@/assets/preview-projects.png';
-import previewAboutDark from '@/assets/preview-about.png';
-import previewContactDark from '@/assets/preview-contact.png';
+import previewHeroDark from '@/assets/preview-hero.webp';
+import previewProjectsDark from '@/assets/preview-projects.webp';
+import previewAboutDark from '@/assets/preview-about.webp';
+import previewContactDark from '@/assets/preview-contact.webp';
 // Light mode preview screenshots
-import previewHeroLight from '@/assets/preview-hero-light.png';
-import previewProjectsLight from '@/assets/preview-projects-light.png';
-import previewAboutLight from '@/assets/preview-about-light.png';
-import previewContactLight from '@/assets/preview-contact-light.png';
+import previewHeroLight from '@/assets/preview-hero-light.webp';
+import previewProjectsLight from '@/assets/preview-projects-light.webp';
+import previewAboutLight from '@/assets/preview-about-light.webp';
+import previewContactLight from '@/assets/preview-contact-light.webp';
 
 type SectionId = 'hero' | 'work' | 'about' | 'contact';
 
@@ -250,7 +250,7 @@ export default function Navbar() {
                 </div>
 
                 <div className={`flex-1 min-h-[200px] max-h-[280px] overflow-hidden rounded-2xl border shadow-[0_24px_60px_rgba(0,0,0,0.28)] ${isDark ? 'bg-slate-950 border-white/10' : 'bg-white border-black/10'}`}>
-                  <img src={previewSection.image} alt={`${previewSection.title} preview`} className="h-full w-full object-cover" />
+                  <img src={previewSection.image} alt={`${previewSection.title} preview`} className="h-full w-full object-cover" loading="lazy" decoding="async" />
                   <div className={`absolute inset-0 ${isDark ? 'bg-linear-to-t from-black/72 via-black/20 to-transparent' : 'bg-linear-to-t from-white/20 via-transparent to-transparent'}`} />
                 </div>
 

@@ -47,7 +47,16 @@ const HeroSection = () => {
   const [typedTitle, setTypedTitle] = useState(rotatingTitles[0].slice(0, 1));
   const [isDeleting, setIsDeleting] = useState(false);
   const [isSceneVisible, setIsSceneVisible] = useState(true);
+  const [isSceneReady, setIsSceneReady] = useState(false);
   const [pointerTarget, setPointerTarget] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setIsSceneReady(true);
+    }, 3000);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const currentTitle = rotatingTitles[titleIndex];
@@ -129,13 +138,15 @@ const HeroSection = () => {
     >
       <div className="pointer-events-none absolute inset-0 z-0 flex w-full translate-y-0 items-center justify-center opacity-45 lg:inset-auto lg:right-[7%] lg:top-[54%] lg:z-5 lg:w-[34%] lg:-translate-y-1/2 lg:opacity-100">
         <div className="h-[min(52vh,430px)] w-full translate-x-0 md:h-[min(70vh,680px)] lg:h-[min(62vh,620px)] lg:translate-x-[6%]">
-          <Suspense fallback={null}>
-            <LiquidMetalBlobScene
-              active={isSceneVisible}
-              pointerTarget={pointerTarget}
-              isDark={isDark}
-            />
-          </Suspense>
+          {isSceneReady && (
+            <Suspense fallback={null}>
+              <LiquidMetalBlobScene
+                active={isSceneVisible}
+                pointerTarget={pointerTarget}
+                isDark={isDark}
+              />
+            </Suspense>
+          )}
         </div>
       </div>
 
@@ -166,7 +177,7 @@ const HeroSection = () => {
 
           {/* Buttons */}
           <div className="flex flex-col items-stretch justify-center lg:items-start gap-3 mt-5 md:mt-4 w-full max-w-80">
-            <a href="https://drive.google.com/file/d/1tk00XTLz2nBKSEo_D-sLLjsnWLvP8qkh/view?usp=drivesdk" target="_blank" rel="noreferrer" className={`inline-flex items-center justify-center gap-2.5 h-12 px-4 rounded-lg font-semibold transition-colors shadow-lg text-sm w-full animate-rise-up ${isDark ? 'bg-slate-50 text-slate-900 hover:bg-white shadow-blue-900/20' : 'bg-slate-50 text-slate-900 hover:bg-white shadow-black/10'} border border-slate-200`}>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className={`inline-flex items-center justify-center gap-2.5 h-12 px-4 rounded-lg font-semibold transition-colors shadow-lg text-sm w-full animate-rise-up ${isDark ? 'bg-slate-50 text-slate-900 hover:bg-white shadow-blue-900/20' : 'bg-slate-50 text-slate-900 hover:bg-white shadow-black/10'} border border-slate-200`}>
               <span className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white/80 p-1.5">
                 <svg className="w-5 h-5 text-slate-900" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" d="M7 7V3a1 1 0 011-1h5.586a1 1 0 01.707.293l3.414 3.414A1 1 0 0118 6.414V21a1 1 0 01-1 1H8a1 1 0 01-1-1V7z" /><path strokeLinecap="round" strokeLinejoin="round" d="M13 2v4a1 1 0 001 1h4" /></svg>
               </span>
@@ -202,8 +213,6 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
     const styleTag = document.createElement("style");
     styleTag.id = styleId;
     styleTag.textContent = `
-      @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400&family=Inter:wght@300;400;500;600;700&display=swap');
-      
       .font-sans {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       }

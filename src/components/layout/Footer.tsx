@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { useThemeMode } from '@/hooks/useThemeMode';
 
 export default function Footer() {
@@ -15,8 +15,11 @@ export default function Footer() {
             <div>
               <a href="#hero" className="inline-flex items-center gap-3 mb-5 transition hover:opacity-80 group">
                 <img 
-                  src="/logo.png" 
+                  src="/logo.webp"
                   alt="Almeda Logo" 
+                  width="97"
+                  height="70"
+                  decoding="async"
                   className="h-10 w-auto object-contain transition-all group-hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.35)]" 
                 />
                 <span className={`text-[10px] font-mono uppercase tracking-[0.35em] flex items-center gap-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
@@ -34,9 +37,9 @@ export default function Footer() {
                 <h3 className={`text-xs font-mono font-bold tracking-widest uppercase ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>SYS.LINKS</h3>
               </div>
               <ul role="list" className="space-y-3">
-                {['Home', 'Projects', 'About', 'Contact'].map((item) => (
+                {['Hero', 'Projects', 'About', 'Contact'].map((item) => (
                   <li key={item}>
-                    <a href={`#${item === 'Projects' ? 'work' : item.toLowerCase()}`} className={`group flex items-center gap-2 rounded-2xl border px-4 py-3 text-sm font-mono transition-colors ${isDark ? 'border-white/10 bg-white/5 text-slate-400 hover:border-white/20 hover:bg-white/10 hover:text-white' : 'border-black/10 bg-white/40 text-slate-600 hover:border-black/20 hover:bg-white hover:text-slate-900'}`}>
+                    <a href={`#${item === 'Hero' ? 'hero' : item === 'Projects' ? 'work' : item.toLowerCase()}`} className={`group flex items-center gap-2 rounded-2xl border px-4 py-3 text-sm font-mono transition-colors ${isDark ? 'border-white/10 bg-white/5 text-slate-400 hover:border-white/20 hover:bg-white/10 hover:text-white' : 'border-black/10 bg-white/40 text-slate-600 hover:border-black/20 hover:bg-white hover:text-slate-900'}`}>
                       <span className={`${isDark ? 'text-slate-500 group-hover:text-sky-300' : 'text-slate-400 group-hover:text-sky-600'}`}>/</span> {item}
                     </a>
                   </li>
@@ -51,9 +54,8 @@ export default function Footer() {
               </div>
               <ul role="list" className="space-y-3">
                 {[
-                  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-                  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-                  { name: 'Twitter', icon: Twitter, href: 'https://twitter.com' },
+                  { name: 'GitHub', icon: Github, href: 'https://github.com/Almeda1' },
+                  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/oscar-okomadu-04154a41b/' },
                   { name: 'Email', icon: Mail, href: 'mailto:okomaduo@gmail.com' }
                 ].map((social) => (
                   <li key={social.name}>
@@ -73,9 +75,6 @@ export default function Footer() {
             
             <p className={`text-xs font-mono ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
               COPYRIGHT &copy; {currentYear} ALMEDA. ALL_RIGHTS_RESERVED. <span className="animate-pulse font-bold text-sky-500">_</span>
-            </p>
-            <p className={`text-xs font-mono flex items-center gap-2 ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
-              COMPILED WITH <Heart className="h-3 w-3 text-red-500/80 fill-red-500/50 animate-pulse" /> IN NIGERIA
             </p>
           </div>
         </div>

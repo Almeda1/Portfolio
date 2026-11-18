@@ -33,9 +33,9 @@ const primaryLinks: ContactLink[] = [
 const socialLinks: ContactLink[] = [
   {
     label: 'Call',
-    href: 'tel:07015502629',
+    href: 'tel:09136744015',
     external: false,
-    detail: '07015502629',
+    detail: '09136744015',
     emphasis: 'secondary',
     icon: Phone,
   },
